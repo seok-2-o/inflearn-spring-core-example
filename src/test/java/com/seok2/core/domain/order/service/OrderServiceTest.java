@@ -1,18 +1,22 @@
 package com.seok2.core.domain.order.service;
 
+import com.seok2.core.config.AppConfiguration;
+import com.seok2.core.domain.discount.FixedDiscountPolicy;
+import com.seok2.core.domain.discount.RateDiscountPolicy;
 import com.seok2.core.domain.member.data.Grade;
 import com.seok2.core.domain.member.data.Member;
+import com.seok2.core.domain.member.repository.impl.InMemoryMemberRepository;
 import com.seok2.core.domain.member.service.MemberService;
 import com.seok2.core.domain.order.data.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class OrderServiceTest {
 
-    private final OrderService orderService = new OrderService();
-    private final MemberService memberService = new MemberService();
+    private final AppConfiguration configuration = new AppConfiguration();
+    private final OrderService orderService = configuration.orderService();
+    private final MemberService memberService = configuration.memberService();
 
     @Test
     public void create() {

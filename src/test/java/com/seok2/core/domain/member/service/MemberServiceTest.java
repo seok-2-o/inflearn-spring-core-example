@@ -1,5 +1,6 @@
 package com.seok2.core.domain.member.service;
 
+import com.seok2.core.config.AppConfiguration;
 import com.seok2.core.domain.member.data.Grade;
 import com.seok2.core.domain.member.data.Member;
 import com.seok2.core.domain.member.repository.impl.InMemoryMemberRepository;
@@ -11,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MemberServiceTest {
 
-    private final MemberService service = new MemberService();
+    private final AppConfiguration configuration = new AppConfiguration();
+    private final MemberService service = configuration.memberService();
 
     @Test
     public void join() {

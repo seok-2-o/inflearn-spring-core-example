@@ -8,8 +8,8 @@ public class MemberService {
 
     public final MemberRepository memberRepository;
 
-    public MemberService() {
-        this.memberRepository = new InMemoryMemberRepository();
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     public void join(Member member) {
