@@ -20,4 +20,8 @@ public class OrderService {
         int benefit = discountPolicy.discount(member, price);
         return new Order(member, name, price, benefit);
     }
+
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
